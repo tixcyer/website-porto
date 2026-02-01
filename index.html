@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portofolio Mas Ray - Frontend & Future Fullstack Developer. HTML, CSS, JavaScript."
+    />
+    <meta
+      name="keywords"
+      content="Portofolio, Frontend Developer, HTML, CSS, JavaScript, RPL"
+    />
+    <meta name="author" content="Mas Ray" />
+    <title>Mas Ray | Frontend Developer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: #0f172a;
+        color: #e5e7eb;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      /* NAVBAR */
+      header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 20px 80px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(15, 23, 42, 0.85);
+        backdrop-filter: blur(14px);
+        z-index: 1000;
+      }
+      header h1 {
+        color: #38bdf8;
+        font-size: 20px;
+        font-weight: 600;
+      }
+      nav {
+        display: flex;
+        gap: 30px;
+      }
+      nav a {
+        color: #cbd5f5;
+        font-size: 14px;
+        transition: 0.3s;
+      }
+      nav a:hover {
+        color: #38bdf8;
+      }
+
+      .menu-btn {
+        display: none;
+        font-size: 26px;
+        color: #38bdf8;
+        cursor: pointer;
+      }
+
+      /* HERO */
+      .hero {
+        min-height: 100vh;
+        padding: 160px 80px 80px;
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 60px;
+        align-items: center;
+      }
+      .hero h2 {
+        font-size: 52px;
+        line-height: 1.2;
+        margin-bottom: 20px;
+      }
+      .hero span {
+        color: #38bdf8;
+      }
+      .hero p {
+        color: #94a3b8;
+        font-size: 18px;
+        margin-bottom: 35px;
+      }
+      .btn {
+        display: inline-block;
+        padding: 14px 34px;
+        border-radius: 14px;
+        font-weight: 600;
+        background: linear-gradient(135deg, #38bdf8, #6366f1);
+        color: #020617;
+        transition: 0.3s;
+      }
+      .btn:hover {
+        transform: translateY(-4px);
+      }
+      .hero img {
+        width: 320px;
+        border-radius: 26px;
+        box-shadow: 0 30px 70px rgba(56, 189, 248, 0.35);
+      }
+
+      section {
+        padding: 110px 80px;
+      }
+      section h3 {
+        text-align: center;
+        font-size: 34px;
+        margin-bottom: 60px;
+      }
+
+      /* ABOUT CARD */
+      .about-card {
+        max-width: 900px;
+        margin: auto;
+        background: #020617;
+        border: 1px solid #1e293b;
+        border-radius: 26px;
+        padding: 40px;
+        text-align: center;
+      }
+      .about-card p {
+        color: #94a3b8;
+        margin-bottom: 30px;
+      }
+      .about-info {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 20px;
+      }
+      .about-info div {
+        background: #020617;
+        border: 1px solid #1e293b;
+        border-radius: 18px;
+        padding: 20px;
+      }
+      .about-info span {
+        font-size: 12px;
+        color: #64748b;
+      }
+
+      /* SKILLS */
+      .skills {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 30px;
+      }
+      .skill {
+        background: #020617;
+        border: 1px solid #1e293b;
+        border-radius: 22px;
+        padding: 30px;
+        text-align: center;
+        transition: 0.3s;
+      }
+      .skill:hover {
+        transform: translateY(-8px);
+        border-color: #38bdf8;
+      }
+      .skill img {
+        width: 48px;
+        margin-bottom: 15px;
+      }
+      .skill p {
+        font-size: 14px;
+        color: #94a3b8;
+      }
+
+      /* PROJECT */
+      .projects {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 35px;
+      }
+      .project {
+        background: #020617;
+        border: 1px solid #1e293b;
+        border-radius: 26px;
+        overflow: hidden;
+        transition: 0.3s;
+        display: block;
+      }
+      .project:hover {
+        transform: translateY(-10px);
+        border-color: #38bdf8;
+      }
+      .project img {
+        width: 100%;
+        height: 190px;
+        object-fit: cover;
+      }
+      .project div {
+        padding: 25px;
+      }
+      .project p {
+        font-size: 14px;
+        color: #94a3b8;
+      }
+
+      /* CONTACT */
+      .contact {
+        text-align: center;
+      }
+      .contact a {
+        display: inline-block;
+        margin: 10px;
+        padding: 14px 30px;
+        border-radius: 16px;
+        border: 1px solid #38bdf8;
+        color: #38bdf8;
+        transition: 0.3s;
+      }
+      .contact a:hover {
+        background: #38bdf8;
+        color: #020617;
+      }
+
+      footer {
+        text-align: center;
+        padding: 40px;
+        color: #64748b;
+        font-size: 14px;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 1024px) {
+        header {
+          padding: 20px 40px;
+        }
+        .hero {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+        .hero img {
+          margin: auto;
+        }
+      }
+      @media (max-width: 768px) {
+        nav {
+          position: absolute;
+          top: 70px;
+          right: 40px;
+          background: #020617;
+          border: 1px solid #1e293b;
+          border-radius: 18px;
+          flex-direction: column;
+          padding: 20px;
+          display: none;
+        }
+        nav.active {
+          display: flex;
+        }
+        .menu-btn {
+          display: block;
+        }
+        .hero h2 {
+          font-size: 40px;
+        }
+        section {
+          padding: 90px 40px;
+        }
+      }
+      @media (max-width: 480px) {
+        .hero h2 {
+          font-size: 32px;
+        }
+        .skills,
+        .projects {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Ray.dev</h1>
+      <div class="menu-btn" onclick="toggleMenu()">☰</div>
+      <nav id="nav">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero" id="home">
+      <div>
+        <h2>Frontend & <span>Future Fullstack</span><br />Developer</h2>
+        <p>Membangun website modern, responsive, dan profesional.</p>
+        <a href="#projects" class="btn">View My Work</a>
+      </div>
+      <img
+        src="https://i.pinimg.com/736x/bd/35/48/bd3548bea8aa5d46635711dc5e5c6fd9.jpg"
+        alt="Foto Profil"
+      />
+    </section>
+
+    <section id="about">
+      <h3>About Me</h3>
+      <div class="about-card">
+        <p>
+          Saya mahasiswa <strong>Rekayasa Perangkat Lunak</strong> yang fokus
+          pada <strong>Frontend Development</strong>. Terbiasa membangun UI
+          modern menggunakan HTML, CSS, dan JavaScript.
+        </p>
+        <div class="about-info">
+          <div>
+            <span>Nama</span>
+            <p>Mas Ray</p>
+          </div>
+          <div>
+            <span>Role</span>
+            <p>Frontend Developer</p>
+          </div>
+          <div>
+            <span>Fokus</span>
+            <p>Web Development</p>
+          </div>
+          <div>
+            <span>Status</span>
+            <p>Mahasiswa Teknik</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h3>Skills</h3>
+      <div class="skills">
+        <div class="skill">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+          />
+          <h4>HTML5</h4>
+          <p>Semantic structure</p>
+        </div>
+        <div class="skill">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+          />
+          <h4>CSS3</h4>
+          <p>Flexbox & Grid</p>
+        </div>
+        <div class="skill">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+          />
+          <h4>JavaScript</h4>
+          <p>DOM & Logic</p>
+        </div>
+        <div class="skill">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+          />
+          <h4>Git</h4>
+          <p>Version Control</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h3>Projects</h3>
+      <div class="projects">
+        <a
+          href="http://coffeeray.great-site.net/index.php"
+          target="_blank"
+          class="project"
+        >
+          <img
+            src="https://i.pinimg.com/736x/f5/4b/e5/f54be5264b91f70b001f51c9d469aeee.jpg"
+          />
+          <div>
+            <h4>Kasir Cafe</h4>
+            <p>Website Kasir Sederhana.</p>
+          </div>
+        </a>
+
+        <a
+          href="https://ray-web.infy.uk/makanan.html"
+          target="_blank"
+          class="project"
+        >
+          <img
+            src="https://i.pinimg.com/736x/c1/f7/15/c1f715eb529db3a5e6c64fc43bfc0838.jpg"
+          />
+          <div>
+            <h4>Selera Nusantara</h4>
+            <p>Website Makanan Sederhana.</p>
+          </div>
+        </a>
+
+        <a
+          href="https://ray-web.infy.uk/ray.html"
+          target="_blank"
+          class="project"
+        >
+          <img
+            src="https://i.pinimg.com/1200x/0b/f5/83/0bf583f4fc208c073fd9ddae46086f94.jpg"
+          />
+          <div>
+            <h4>Cafe Shop</h4>
+            <p>Website company profesional.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <h3>Contact</h3>
+      <a href="mailto:masray1801@gmail.com">Email</a>
+    </section>
+
+    <footer>© 2026 Mas Ray</footer>
+
+    <script>
+      function toggleMenu() {
+        document.getElementById("nav").classList.toggle("active");
+      }
+    </script>
+  </body>
+</html>

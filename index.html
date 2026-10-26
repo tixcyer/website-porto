@@ -1,442 +1,982 @@
-<!doctype html>
-<html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Portofolio Mas Ray - Frontend & Future Fullstack Developer. HTML, CSS, JavaScript."
-    />
-    <meta
-      name="keywords"
-      content="Portofolio, Frontend Developer, HTML, CSS, JavaScript, RPL"
-    />
-    <meta name="author" content="Mas Ray" />
-    <title>Mas Ray | Frontend Developer</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ray | Information Systems Student & AI-Powered Developer</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter & JetBrains Mono -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0b0b0e',
+                        darkCard: '#15151a',
+                        darkCardHover: '#1c1c24',
+                        darkBorder: '#262630',
+                        neonRed: '#FF0055',
+                        neonRedHover: '#e0004b',
+                        cyberYellow: '#FFB800',
+                        cyberYellowGlow: 'rgba(255, 184, 0, 0.15)',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Inter", sans-serif;
-      }
-      html {
-        scroll-behavior: smooth;
-      }
-      body {
-        background: #0f172a;
-        color: #e5e7eb;
-      }
-      a {
-        text-decoration: none;
-        color: inherit;
-      }
-
-      /* NAVBAR */
-      header {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        padding: 20px 80px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: rgba(15, 23, 42, 0.85);
-        backdrop-filter: blur(14px);
-        z-index: 1000;
-      }
-      header h1 {
-        color: #38bdf8;
-        font-size: 20px;
-        font-weight: 600;
-      }
-      nav {
-        display: flex;
-        gap: 30px;
-      }
-      nav a {
-        color: #cbd5f5;
-        font-size: 14px;
-        transition: 0.3s;
-      }
-      nav a:hover {
-        color: #38bdf8;
-      }
-
-      .menu-btn {
-        display: none;
-        font-size: 26px;
-        color: #38bdf8;
-        cursor: pointer;
-      }
-
-      /* HERO */
-      .hero {
-        min-height: 100vh;
-        padding: 160px 80px 80px;
-        display: grid;
-        grid-template-columns: 1.2fr 1fr;
-        gap: 60px;
-        align-items: center;
-      }
-      .hero h2 {
-        font-size: 52px;
-        line-height: 1.2;
-        margin-bottom: 20px;
-      }
-      .hero span {
-        color: #38bdf8;
-      }
-      .hero p {
-        color: #94a3b8;
-        font-size: 18px;
-        margin-bottom: 35px;
-      }
-      .btn {
-        display: inline-block;
-        padding: 14px 34px;
-        border-radius: 14px;
-        font-weight: 600;
-        background: linear-gradient(135deg, #38bdf8, #6366f1);
-        color: #020617;
-        transition: 0.3s;
-      }
-      .btn:hover {
-        transform: translateY(-4px);
-      }
-      .hero img {
-        width: 320px;
-        border-radius: 26px;
-        box-shadow: 0 30px 70px rgba(56, 189, 248, 0.35);
-      }
-
-      section {
-        padding: 110px 80px;
-      }
-      section h3 {
-        text-align: center;
-        font-size: 34px;
-        margin-bottom: 60px;
-      }
-
-      /* ABOUT CARD */
-      .about-card {
-        max-width: 900px;
-        margin: auto;
-        background: #020617;
-        border: 1px solid #1e293b;
-        border-radius: 26px;
-        padding: 40px;
-        text-align: center;
-      }
-      .about-card p {
-        color: #94a3b8;
-        margin-bottom: 30px;
-      }
-      .about-info {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        gap: 20px;
-      }
-      .about-info div {
-        background: #020617;
-        border: 1px solid #1e293b;
-        border-radius: 18px;
-        padding: 20px;
-      }
-      .about-info span {
-        font-size: 12px;
-        color: #64748b;
-      }
-
-      /* SKILLS */
-      .skills {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 30px;
-      }
-      .skill {
-        background: #020617;
-        border: 1px solid #1e293b;
-        border-radius: 22px;
-        padding: 30px;
-        text-align: center;
-        transition: 0.3s;
-      }
-      .skill:hover {
-        transform: translateY(-8px);
-        border-color: #38bdf8;
-      }
-      .skill img {
-        width: 48px;
-        margin-bottom: 15px;
-      }
-      .skill p {
-        font-size: 14px;
-        color: #94a3b8;
-      }
-
-      /* PROJECT */
-      .projects {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 35px;
-      }
-      .project {
-        background: #020617;
-        border: 1px solid #1e293b;
-        border-radius: 26px;
-        overflow: hidden;
-        transition: 0.3s;
-        display: block;
-      }
-      .project:hover {
-        transform: translateY(-10px);
-        border-color: #38bdf8;
-      }
-      .project img {
-        width: 100%;
-        height: 190px;
-        object-fit: cover;
-      }
-      .project div {
-        padding: 25px;
-      }
-      .project p {
-        font-size: 14px;
-        color: #94a3b8;
-      }
-
-      /* CONTACT */
-      .contact {
-        text-align: center;
-      }
-      .contact a {
-        display: inline-block;
-        margin: 10px;
-        padding: 14px 30px;
-        border-radius: 16px;
-        border: 1px solid #38bdf8;
-        color: #38bdf8;
-        transition: 0.3s;
-      }
-      .contact a:hover {
-        background: #38bdf8;
-        color: #020617;
-      }
-
-      footer {
-        text-align: center;
-        padding: 40px;
-        color: #64748b;
-        font-size: 14px;
-      }
-
-      /* RESPONSIVE */
-      @media (max-width: 1024px) {
-        header {
-          padding: 20px 40px;
+        body {
+            background-color: #0b0b0e;
+            color: #e2e8f0;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
         }
-        .hero {
-          grid-template-columns: 1fr;
-          text-align: center;
+        .glow-red {
+            box-shadow: 0 0 25px rgba(255, 0, 85, 0.35);
         }
-        .hero img {
-          margin: auto;
+        .glow-yellow {
+            box-shadow: 0 0 20px rgba(255, 184, 0, 0.25);
         }
-      }
-      @media (max-width: 768px) {
-        nav {
-          position: absolute;
-          top: 70px;
-          right: 40px;
-          background: #020617;
-          border: 1px solid #1e293b;
-          border-radius: 18px;
-          flex-direction: column;
-          padding: 20px;
-          display: none;
+        .text-glow-red {
+            text-shadow: 0 0 10px rgba(255, 0, 85, 0.5);
         }
-        nav.active {
-          display: flex;
+        .text-glow-yellow {
+            text-shadow: 0 0 10px rgba(255, 184, 0, 0.5);
         }
-        .menu-btn {
-          display: block;
+        .border-gradient {
+            border-image: linear-gradient(to right, #FF0055, #FFB800) 1;
         }
-        .hero h2 {
-          font-size: 40px;
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
         }
-        section {
-          padding: 90px 40px;
+        ::-webkit-scrollbar-track {
+            background: #0b0b0e;
         }
-      }
-      @media (max-width: 480px) {
-        .hero h2 {
-          font-size: 32px;
+        ::-webkit-scrollbar-thumb {
+            background: #262630;
+            border-radius: 4px;
         }
-        .skills,
-        .projects {
-          grid-template-columns: 1fr;
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FF0055;
         }
-      }
+        .glass-panel {
+            background: rgba(21, 21, 26, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
     </style>
-  </head>
-  <body>
-    <header>
-      <h1>Ray.dev</h1>
-      <div class="menu-btn" onclick="toggleMenu()">☰</div>
-      <nav id="nav">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
+</head>
+<body class="bg-darkBg text-slate-200 antialiased selection:bg-neonRed selection:text-white">
+
+    <!-- Floating Glassmorphism Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 px-4 py-4">
+        <nav class="max-w-6xl mx-auto glass-panel rounded-2xl px-6 py-3 flex items-center justify-between border border-darkBorder shadow-2xl">
+            <!-- Brand Logo -->
+            <a href="#hero" class="flex items-center gap-2 group">
+                <span class="text-2xl font-black tracking-wider text-white">RAY<span class="text-neonRed group-hover:text-cyberYellow transition-colors duration-300">.</span></span>
+                <span class="text-[10px] font-mono uppercase bg-neonRed/10 text-neonRed border border-neonRed/30 px-2 py-0.5 rounded font-semibold tracking-widest hidden sm:inline-block">AI-Accelerated</span>
+            </a>
+
+            <!-- Desktop Links -->
+            <div class="hidden md:flex items-center gap-8 font-medium text-sm">
+                <a href="#about" class="text-slate-300 hover:text-neonRed transition-colors duration-200">Tentang Saya</a>
+                <a href="#skills" class="text-slate-300 hover:text-neonRed transition-colors duration-200">Keahlian</a>
+                <a href="#projects" class="text-slate-300 hover:text-neonRed transition-colors duration-200">Portofolio Proyek</a>
+                <a href="#ai-workflow" class="text-slate-300 hover:text-neonRed transition-colors duration-200">Alur Kerja AI</a>
+                <a href="#contact" class="px-4 py-2 bg-neonRed text-white font-semibold rounded-xl hover:bg-neonRedHover transition-all duration-200 hover:shadow-lg hover:shadow-neonRed/30 text-xs tracking-wide">
+                    HUBUNGI SAYA
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white focus:outline-none p-2" aria-label="Toggle Navigation">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu Popup -->
+        <div id="mobile-menu" class="hidden md:hidden max-w-6xl mx-auto mt-2 glass-panel rounded-2xl p-6 border border-darkBorder flex flex-col gap-4 text-center text-sm font-medium">
+            <a href="#about" class="mobile-link text-slate-300 hover:text-neonRed py-2 border-b border-darkBorder/50">Tentang Saya</a>
+            <a href="#skills" class="mobile-link text-slate-300 hover:text-neonRed py-2 border-b border-darkBorder/50">Keahlian</a>
+            <a href="#projects" class="mobile-link text-slate-300 hover:text-neonRed py-2 border-b border-darkBorder/50">Portofolio Proyek</a>
+            <a href="#ai-workflow" class="mobile-link text-slate-300 hover:text-neonRed py-2 border-b border-darkBorder/50">Alur Kerja AI</a>
+            <a href="#contact" class="mobile-link text-neonRed font-bold py-2">Hubungi Saya</a>
+        </div>
     </header>
 
-    <section class="hero" id="home">
-      <div>
-        <h2>Frontend & <span>Future Fullstack</span><br />Developer</h2>
-        <p>Membangun website modern, responsive, dan profesional.</p>
-        <a href="#projects" class="btn">View My Work</a>
-      </div>
-      <img
-        src="https://i.pinimg.com/736x/bd/35/48/bd3548bea8aa5d46635711dc5e5c6fd9.jpg"
-        alt="Foto Profil"
-      />
-    </section>
+    <!-- Main Content Container -->
+    <main class="pt-24">
 
-    <section id="about">
-      <h3>About Me</h3>
-      <div class="about-card">
-        <p>
-          Saya mahasiswa <strong>Teknik Informatika</strong> yang fokus
-          pada <strong>Frontend Development</strong>. Terbiasa membangun UI
-          modern menggunakan HTML, CSS, dan JavaScript.
-        </p>
-        <div class="about-info">
-          <div>
-            <span>Nama</span>
-            <p>Mas Ray</p>
-          </div>
-          <div>
-            <span>Role</span>
-            <p>Frontend Developer</p>
-          </div>
-          <div>
-            <span>Fokus</span>
-            <p>Web Development</p>
-          </div>
-          <div>
-            <span>Status</span>
-            <p>Mahasiswa Teknik</p>
-          </div>
+        <!-- HERO SECTION -->
+        <section id="hero" class="min-h-[88vh] flex items-center justify-center relative overflow-hidden px-4 py-12">
+            <!-- Background Decorative Glows -->
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-neonRed/10 rounded-full blur-[120px] pointer-events-none"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyberYellow/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+            <div class="max-w-4xl mx-auto text-center z-10">
+                <!-- Status Badge -->
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-darkCard border border-darkBorder text-slate-300 text-xs sm:text-sm font-mono mb-8">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span>Mahasiswa Sistem Informasi & Dynamic Builder</span>
+                </div>
+
+                <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white mb-6 leading-tight">
+                    Halo, Saya <span class="text-transparent bg-clip-text bg-gradient-to-r from-neonRed via-pink-500 to-cyberYellow text-glow-red">RAY.</span>
+                </h1>
+
+                <p class="text-lg sm:text-xl text-slate-300 font-light max-w-2xl mx-auto mb-10 leading-relaxed">
+                    Membangun perangkat lunak modern & efisien melalui integrasi <span class="text-cyberYellow font-semibold">AI Tools</span>. Mengubah ide kompleks menjadi solusi bisnis nyata dengan kecepatan tinggi tanpa mengorbankan kualitas.
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#projects" class="w-full sm:w-auto px-8 py-4 bg-neonRed hover:bg-neonRedHover text-white font-bold rounded-xl transition-all duration-300 glow-red flex items-center justify-center gap-2 text-sm tracking-wide group">
+                        <span>JELAJAHI 15 PROYEK</span>
+                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                    <a href="#contact" class="w-full sm:w-auto px-8 py-4 bg-darkCard hover:bg-darkCardHover text-slate-200 border border-darkBorder hover:border-cyberYellow/50 font-semibold rounded-xl transition-all duration-300 flex items-center justify-center gap-2 text-sm tracking-wide">
+                        <i class="fa-regular fa-envelope text-cyberYellow"></i>
+                        <span>HUBUNGI SAYA</span>
+                    </a>
+                </div>
+
+                <!-- Stats Highlights -->
+                <div class="grid grid-cols-3 gap-4 max-w-lg mx-auto mt-16 pt-8 border-t border-darkBorder/60">
+                    <div>
+                        <div class="text-2xl sm:text-3xl font-extrabold text-white font-mono">15+</div>
+                        <div class="text-xs text-slate-400 mt-1">Proyek Siap Rilis</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl sm:text-3xl font-extrabold text-cyberYellow font-mono">3x</div>
+                        <div class="text-xs text-slate-400 mt-1">Efisiensi via AI</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl sm:text-3xl font-extrabold text-neonRed font-mono">3</div>
+                        <div class="text-xs text-slate-400 mt-1">Domain Aplikasi</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT & AI EFFICIENCY SECTION -->
+        <section id="about" class="py-20 px-4 max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Info Box -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-neonRed/10 border border-neonRed/30 text-neonRed text-xs font-mono font-semibold">
+                        <i class="fa-solid fa-user-astronaut"></i> PROFIL & FILOSOFI
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+                        Mahasiswa Sistem Informasi yang Memanfaatkan Kekuatan <span class="text-cyberYellow">AI Modern</span>.
+                    </h2>
+                    <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
+                        Meskipun tidak berfokus pada jalur pengalaman kerja konvensional, saya fokus mengasah kemampuan eksekusi teknis yang relevan dengan industri. Saya memposisikan teknologi AI sebagai akselerator utama dalam alur kerja pengembangan perangkat lunak.
+                    </p>
+                    <p class="text-slate-400 leading-relaxed text-sm sm:text-base">
+                        Dengan memanfaatkan AI seperti ChatGPT, Claude, dan GitHub Copilot untuk *brainstorming* arsitektur, pembuat kode awal (*code generation*), *debugging*, dan otomatisasi dokumentasi, saya mampu menyelesaikan proyek aplikasi yang kompleks dalam waktu jauh lebih cepat dibanding metode konvensional.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-4 pt-4">
+                        <div class="p-4 rounded-xl bg-darkCard border border-darkBorder">
+                            <i class="fa-solid fa-bolt text-cyberYellow text-2xl mb-2"></i>
+                            <h4 class="font-bold text-white text-sm">Rapid Prototyping</h4>
+                            <p class="text-xs text-slate-400 mt-1">Mengubah konsep menjadi aplikasi siap pakai dalam hitungan hari.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-darkCard border border-darkBorder">
+                            <i class="fa-solid fa-bug-slash text-neonRed text-2xl mb-2"></i>
+                            <h4 class="font-bold text-white text-sm">Debugging Cepat</h4>
+                            <p class="text-xs text-slate-400 mt-1">Identifikasi error dan optimasi kode secara cerdas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Visual/Workflow Box -->
+                <div class="lg:col-span-6">
+                    <div class="glass-panel p-6 sm:p-8 rounded-2xl border border-darkBorder relative overflow-hidden">
+                        <div class="flex items-center justify-between pb-4 mb-6 border-b border-darkBorder font-mono text-xs text-slate-400">
+                            <span class="flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
+                                <span class="w-3 h-3 rounded-full bg-yellow-500/80"></span>
+                                <span class="w-3 h-3 rounded-full bg-green-500/80"></span>
+                            </span>
+                            <span>ray_ai_workflow.config</span>
+                        </div>
+
+                        <div class="space-y-4 font-mono text-xs sm:text-sm">
+                            <div class="p-3 rounded bg-darkBg border border-darkBorder/60 flex items-start gap-3">
+                                <span class="text-neonRed font-bold">01.</span>
+                                <div>
+                                    <div class="text-white font-semibold">Analisis Kebutuhan Business</div>
+                                    <div class="text-slate-400 text-xs mt-0.5">Memahami masalah UMKM, E-Commerce & Desktop.</div>
+                                </div>
+                            </div>
+                            <div class="p-3 rounded bg-darkBg border border-darkBorder/60 flex items-start gap-3">
+                                <span class="text-cyberYellow font-bold">02.</span>
+                                <div>
+                                    <div class="text-white font-semibold">Prompting & System Architecture Design</div>
+                                    <div class="text-slate-400 text-xs mt-0.5">Merancang struktur database & modul aplikasi via AI.</div>
+                                </div>
+                            </div>
+                            <div class="p-3 rounded bg-darkBg border border-darkBorder/60 flex items-start gap-3">
+                                <span class="text-emerald-400 font-bold">03.</span>
+                                <div>
+                                    <div class="text-white font-semibold">AI-Assisted Coding & Refactoring</div>
+                                    <div class="text-slate-400 text-xs mt-0.5">Eksekusi kode bersih, modular, & minim bug.</div>
+                                </div>
+                            </div>
+                            <div class="p-3 rounded bg-darkBg border border-darkBorder/60 flex items-start gap-3">
+                                <span class="text-sky-400 font-bold">04.</span>
+                                <div>
+                                    <div class="text-white font-semibold">Validation & Final Deployment</div>
+                                    <div class="text-slate-400 text-xs mt-0.5">Pengujian antarmuka, keandalan, dan siap pakai.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 pt-4 border-t border-darkBorder/60 flex items-center justify-between text-xs text-slate-400">
+                            <span><i class="fa-solid fa-microchip text-cyberYellow mr-1"></i> Efisiensi Waktu</span>
+                            <span class="text-emerald-400 font-mono font-bold">+250% Produkivitas</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SKILLS SECTION -->
+        <section id="skills" class="py-20 px-4 bg-darkCard/40 border-y border-darkBorder/60">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-cyberYellow/10 border border-cyberYellow/30 text-cyberYellow text-xs font-mono font-semibold mb-3">
+                        <i class="fa-solid fa-code"></i> KEMAMPUAN TEKNIS
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Stack Teknologi & Alat AI</h2>
+                    <p class="text-slate-400 text-sm mt-3">Kombinasi dasar pemrograman web/desktop dengan alat efisiensi berbasiskecerdasan buatan.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <!-- Web Development Stack -->
+                    <div class="glass-panel p-6 rounded-2xl border border-darkBorder hover:border-neonRed/40 transition-colors">
+                        <div class="w-12 h-12 rounded-xl bg-neonRed/10 border border-neonRed/30 flex items-center justify-center text-neonRed text-xl mb-6">
+                            <i class="fa-solid fa-globe"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-4">Web Development</h3>
+                        <p class="text-slate-400 text-xs mb-6 leading-relaxed">Pengembangan aplikasi berbasis web yang responsif, dinamis, dan terintegrasi dengan basis data.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-darkBg border border-darkBorder text-slate-300 text-xs rounded-lg font-mono">HTML5 / CSS3</span>
+                            <span class="px-3 py-1 bg-darkBg border border-darkBorder text-slate-300 text-xs rounded-lg font-mono">JavaScript (ES6+)</span>
+                            <span class="px-3 py-1 bg-darkBg border border-darkBorder text-slate-300 text-xs rounded-lg font-mono">Tailwind CSS</span>
+                            <span class="px-3 py-1 bg-darkBg border border-darkBorder text-slate-300 text-xs rounded-lg font-mono">PHP Native</span>
+                            <span class="px-3 py-1 bg-darkBg border border-darkBorder text-slate-300 text-xs rounded-lg font-mono">Laravel Framework</span>
+                            <span class="px-3 py-1 bg-darkBg border border-darkBorder text-slate-300 text-xs rounded-lg font-mono">MySQL / Relational DB</span>
+                        </div>
+                    </div>
+
+                    <!-- AI & Productivity Tools -->
+                    <div class="glass-panel p-6 rounded-2xl border border-darkBorder hover:border-cyberYellow/40 transition-colors relative overflow-hidden">
+                        <div class="absolute -right-6 -top-6 w-20 h-20 bg-cyberYellow/10 rounded-full blur-xl pointer-events-none"></div>
+                        <div class="w-12 h-12 rounded-xl bg-cyberYellow/10 border border-cyberYellow/30 flex items-center justify-center text-cyberYellow text-xl mb-6">
+                            <i class="fa-solid fa-robot"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-4">AI & Productivity Tools</h3>
+                        <p class="text-slate-400 text-xs mb-6 leading-relaxed">Pemanfaatan AI secara strategis untuk mempercepat logika, pencarian solusi, dan pembuatan struktur program.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-cyberYellow/10 border border-cyberYellow/30 text-cyberYellow text-xs rounded-lg font-mono font-semibold">Prompt Engineering</span>
+                            <span class="px-3 py-1 bg-darkBg border border-darkBorder text-slate-300 text-xs rounded-lg font-mono">ChatGPT / Claude</span>
+                            <span class="px-3 py-1 bg-darkBg border border-darkBorder text-slate-300 text-xs rounded-lg font-mono">GitHub Copilot</span>
+                            <span class="px-3 py-1 bg-darkBg border border-darkBorder text-slate-300 text-xs rounded-lg font-mono">Code Refactoring AI</span>
+                            <span class="px-3 py-1 bg-darkBg border border-darkBorder text-slate-300 text-xs rounded-lg font-mono">Rapid Prototyping</span>
+                        </div>
+                    </div>
+
+                    <!-- Desktop & Systems -->
+                    <div class="glass-panel p-6 rounded-2xl border border-darkBorder hover:border-neonRed/40 transition-colors">
+                        <div class="w-12 h-12 rounded-xl bg-neonRed/10 border border-neonRed/30 flex items-center justify-center text-neonRed text-xl mb-6">
+                            <i class="fa-solid fa-desktop"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-4">Desktop & Systems</h3>
+                        <p class="text-slate-400 text-xs mb-6 leading-relaxed">Pengembangan aplikasi desktop standalone untuk operasional lokal perusahaan atau bisnis.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-darkBg border border-darkBorder text-slate-300 text-xs rounded-lg font-mono">VB.NET / C#</span>
+                            <span class="px-3 py-1 bg-darkBg border border-darkBorder text-slate-300 text-xs rounded-lg font-mono">Windows Forms App</span>
+                            <span class="px-3 py-1 bg-darkBg border border-darkBorder text-slate-300 text-xs rounded-lg font-mono">SQLite / Local DB</span>
+                            <span class="px-3 py-1 bg-darkBg border border-darkBorder text-slate-300 text-xs rounded-lg font-mono">System Analysis</span>
+                            <span class="px-3 py-1 bg-darkBg border border-darkBorder text-slate-300 text-xs rounded-lg font-mono">UML & Database Design</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS SHOWCASE SECTION (15 PROJECTS) -->
+        <section id="projects" class="py-24 px-4 max-w-6xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-neonRed/10 border border-neonRed/30 text-neonRed text-xs font-mono font-semibold mb-3">
+                    <i class="fa-solid fa-folder-open"></i> PORTOFOLIO UTAMA
+                </div>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">Koleksi Proyek Perangkat Lunak</h2>
+                <p class="text-slate-400 text-sm mt-3">Total 15 proyek interaktif yang dikelompokkan ke dalam 3 kategori utama bisnis dan teknologi.</p>
+            </div>
+
+            <!-- Category Tabs & Search Bar -->
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-10">
+                <!-- Tab Buttons -->
+                <div class="flex flex-wrap justify-center gap-2 bg-darkCard p-1.5 rounded-xl border border-darkBorder w-full md:w-auto">
+                    <button class="project-tab px-5 py-2.5 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-200 bg-neonRed text-white shadow-md" data-category="umkm">
+                        <i class="fa-solid fa-store mr-1.5"></i> Solusi UMKM (5)
+                    </button>
+                    <button class="project-tab px-5 py-2.5 rounded-lg text-xs sm:text-sm font-semibold text-slate-400 hover:text-white transition-all duration-200" data-category="ecommerce">
+                        <i class="fa-solid fa-cart-shopping mr-1.5"></i> E-Commerce (5)
+                    </button>
+                    <button class="project-tab px-5 py-2.5 rounded-lg text-xs sm:text-sm font-semibold text-slate-400 hover:text-white transition-all duration-200" data-category="desktop">
+                        <i class="fa-solid fa-display mr-1.5"></i> Desktop Apps (5)
+                    </button>
+                </div>
+
+                <!-- Live Search Box -->
+                <div class="relative w-full md:w-72">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 text-sm"></i>
+                    <input type="text" id="project-search" placeholder="Cari nama atau stack..." class="w-full bg-darkCard border border-darkBorder focus:border-neonRed text-white text-xs rounded-xl pl-10 pr-4 py-3 outline-none transition-colors">
+                </div>
+            </div>
+
+            <!-- Projects Grid Container -->
+            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Projects will be dynamically injected here via JavaScript -->
+            </div>
+
+            <!-- Empty Search Result Alert (Hidden by Default) -->
+            <div id="no-projects" class="hidden text-center py-16 bg-darkCard/50 rounded-2xl border border-darkBorder">
+                <i class="fa-solid fa-folder-xmark text-4xl text-slate-600 mb-3"></i>
+                <h3 class="text-lg font-bold text-slate-300">Proyek Tidak Ditemukan</h3>
+                <p class="text-xs text-slate-500 mt-1">Coba kata kunci lain atau pilih kategori tab yang berbeda.</p>
+            </div>
+        </section>
+
+        <!-- AI WORKFLOW EXPLAINER SECTION -->
+        <section id="ai-workflow" class="py-20 px-4 bg-darkCard/30 border-t border-darkBorder">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-cyberYellow/10 border border-cyberYellow/30 text-cyberYellow text-xs font-mono font-semibold mb-3">
+                        <i class="fa-solid fa-brain"></i> CARA KERJA EFEKTIF
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Bagaimana AI Membantu Saya?</h2>
+                    <p class="text-slate-400 text-sm mt-3">Menggunakan AI secara bijak bukan berarti jalan pintas tanpa pemahaman, melainkan strategi efisiensi.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="p-6 rounded-2xl bg-darkCard border border-darkBorder">
+                        <div class="text-cyberYellow font-mono text-2xl font-black mb-3">01</div>
+                        <h3 class="text-lg font-bold text-white mb-2">Desain Database & Modul</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">
+                            AI membantu memetakan skema database relasional (ERD) dan validasi struktur data agar fleksibel dikembangkan dalam jangka panjang.
+                        </p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-darkCard border border-darkBorder">
+                        <div class="text-neonRed font-mono text-2xl font-black mb-3">02</div>
+                        <h3 class="text-lg font-bold text-white mb-2">Akselerasi Coding (Boilerplate)</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">
+                            Penulisan sintaks umum, penyiapan komponen UI, dan fungsi CRUD dilakukan lebih cepat, sehingga fokus saya ada pada logika bisnis utama.
+                        </p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-darkCard border border-darkBorder">
+                        <div class="text-emerald-400 font-mono text-2xl font-black mb-3">03</div>
+                        <h3 class="text-lg font-bold text-white mb-2">Automated Code Review</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">
+                            Menganalisis potensi kerentanan keamanan sederhana, *edge cases*, dan melakukan refactoring agar kode tetap bersih (*clean code*).
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="py-24 px-4 max-w-5xl mx-auto">
+            <div class="glass-panel p-8 sm:p-12 rounded-3xl border border-darkBorder relative overflow-hidden">
+                <div class="absolute -right-16 -bottom-16 w-64 h-64 bg-neonRed/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                    
+                    <!-- Contact Info -->
+                    <div class="lg:col-span-5 space-y-6">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-neonRed/10 border border-neonRed/30 text-neonRed text-xs font-mono font-semibold">
+                            <i class="fa-regular fa-paper-plane"></i> KONEKSI & DISKUSI
+                        </div>
+                        <h2 class="text-3xl font-extrabold text-white">Mari Berkolaborasi!</h2>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Tertarik membuat aplikasi untuk bisnis Anda atau ingin berdiskusi seputar pengembangan software berbasis AI? Hubungi saya kapan saja.
+                        </p>
+
+                        <div class="space-y-4 pt-4">
+                            <a href="mailto:ray.dev@example.com" class="flex items-center gap-4 p-3 rounded-xl bg-darkBg/80 border border-darkBorder hover:border-neonRed transition-colors group">
+                                <div class="w-10 h-10 rounded-lg bg-neonRed/10 flex items-center justify-center text-neonRed group-hover:bg-neonRed group-hover:text-white transition-colors">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <div class="text-[10px] text-slate-500 font-mono">EMAIL</div>
+                                    <div class="text-sm font-semibold text-slate-200">ray.systems@example.com</div>
+                                </div>
+                            </a>
+
+                            <a href="https://linkedin.com" target="_blank" class="flex items-center gap-4 p-3 rounded-xl bg-darkBg/80 border border-darkBorder hover:border-sky-500 transition-colors group">
+                                <div class="w-10 h-10 rounded-lg bg-sky-500/10 flex items-center justify-center text-sky-400 group-hover:bg-sky-500 group-hover:text-white transition-colors">
+                                    <i class="fa-brands fa-linkedin-in"></i>
+                                </div>
+                                <div>
+                                    <div class="text-[10px] text-slate-500 font-mono">LINKEDIN</div>
+                                    <div class="text-sm font-semibold text-slate-200">Ray - Information Systems</div>
+                                </div>
+                            </a>
+
+                            <a href="https://github.com" target="_blank" class="flex items-center gap-4 p-3 rounded-xl bg-darkBg/80 border border-darkBorder hover:border-slate-400 transition-colors group">
+                                <div class="w-10 h-10 rounded-lg bg-slate-500/10 flex items-center justify-center text-slate-300 group-hover:bg-slate-200 group-hover:text-black transition-colors">
+                                    <i class="fa-brands fa-github"></i>
+                                </div>
+                                <div>
+                                    <div class="text-[10px] text-slate-500 font-mono">GITHUB</div>
+                                    <div class="text-sm font-semibold text-slate-200">github.com/ray-dev</div>
+                                </div>
+                            </a>
+
+                            <a href="https://wa.me/" target="_blank" class="flex items-center gap-4 p-3 rounded-xl bg-darkBg/80 border border-darkBorder hover:border-emerald-500 transition-colors group">
+                                <div class="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400 group-hover:bg-emerald-500 group-hover:text-white transition-colors">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </div>
+                                <div>
+                                    <div class="text-[10px] text-slate-500 font-mono">WHATSAPP</div>
+                                    <div class="text-sm font-semibold text-slate-200">+62 812-3456-7890</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Form -->
+                    <div class="lg:col-span-7 bg-darkBg/60 p-6 sm:p-8 rounded-2xl border border-darkBorder">
+                        <form id="contact-form" class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-mono text-slate-400 mb-1">NAMA LENGKAP</label>
+                                <input type="text" required placeholder="Masukkan nama Anda..." class="w-full bg-darkCard border border-darkBorder focus:border-neonRed text-white text-sm rounded-xl px-4 py-3 outline-none transition-colors">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-mono text-slate-400 mb-1">ALAMAT EMAIL</label>
+                                <input type="email" required placeholder="nama@domain.com" class="w-full bg-darkCard border border-darkBorder focus:border-neonRed text-white text-sm rounded-xl px-4 py-3 outline-none transition-colors">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-mono text-slate-400 mb-1">KATEGORI PROYEK</label>
+                                <select class="w-full bg-darkCard border border-darkBorder focus:border-neonRed text-slate-300 text-sm rounded-xl px-4 py-3 outline-none transition-colors">
+                                    <option>Sistem/Aplikasi UMKM</option>
+                                    <option>Platform E-Commerce</option>
+                                    <option>Aplikasi Desktop Custom</option>
+                                    <option>Lainnya / Diskusi Umum</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-mono text-slate-400 mb-1">PESAN / DETAIL KEBUTUHAN</label>
+                                <textarea rows="4" required placeholder="Ceritakan singkat tentang ide atau proyek yang ingin dibuat..." class="w-full bg-darkCard border border-darkBorder focus:border-neonRed text-white text-sm rounded-xl px-4 py-3 outline-none transition-colors"></textarea>
+                            </div>
+                            <button type="submit" class="w-full py-3.5 bg-neonRed hover:bg-neonRedHover text-white font-bold rounded-xl transition-all duration-200 text-sm tracking-wide glow-red">
+                                KIRIM PESAN
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-darkBorder py-8 px-4 text-center text-slate-500 text-xs">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+                &copy; 2026 <span class="text-slate-300 font-bold">RAY.</span> Information Systems Student.
+            </div>
+            <div class="flex items-center gap-1 font-mono text-[11px] text-slate-400">
+                <span>Diakselerasi dengan <i class="fa-solid fa-bolt text-cyberYellow"></i> AI Tools</span>
+            </div>
         </div>
-      </div>
-    </section>
+    </footer>
 
-    <section id="skills">
-      <h3>Skills</h3>
-      <div class="skills">
-        <div class="skill">
-          <img
-            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
-          />
-          <h4>HTML5</h4>
-          <p>Semantic structure</p>
+    <!-- INTERACTIVE PROJECT DETAILS MODAL -->
+    <div id="project-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md hidden transition-opacity duration-300">
+        <div class="glass-panel bg-darkCard border border-darkBorder max-w-2xl w-full rounded-2xl overflow-hidden shadow-2xl relative max-h-[90vh] flex flex-col">
+            
+            <!-- Modal Header -->
+            <div class="p-6 border-b border-darkBorder flex items-start justify-between bg-darkBg/50">
+                <div>
+                    <span id="modal-category" class="px-2.5 py-1 rounded bg-neonRed/10 border border-neonRed/30 text-neonRed text-[10px] font-mono font-bold uppercase">CATEGORY</span>
+                    <h3 id="modal-title" class="text-2xl font-bold text-white mt-2">Project Title</h3>
+                </div>
+                <button id="close-modal-btn" class="text-slate-400 hover:text-white p-2 rounded-lg bg-darkCard border border-darkBorder transition-colors">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Modal Content (Scrollable) -->
+            <div class="p-6 space-y-6 overflow-y-auto font-sans text-sm">
+                <div>
+                    <h4 class="text-xs font-mono text-slate-400 uppercase tracking-wider mb-2">Deskripsi Lengkap Proyek</h4>
+                    <p id="modal-description" class="text-slate-300 leading-relaxed">Detailed project description will be placed here.</p>
+                </div>
+
+                <!-- Features Grid -->
+                <div>
+                    <h4 class="text-xs font-mono text-slate-400 uppercase tracking-wider mb-2">Fitur Utama</h4>
+                    <ul id="modal-features" class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-slate-300">
+                        <!-- Dynamic Features -->
+                    </ul>
+                </div>
+
+                <!-- Tech Stack Used -->
+                <div>
+                    <h4 class="text-xs font-mono text-slate-400 uppercase tracking-wider mb-2">Tech Stack</h4>
+                    <div id="modal-tags" class="flex flex-wrap gap-2">
+                        <!-- Dynamic Tags -->
+                    </div>
+                </div>
+
+                <!-- AI Highlight Box -->
+                <div class="p-4 rounded-xl bg-cyberYellow/10 border border-cyberYellow/30 text-xs">
+                    <div class="flex items-center gap-2 text-cyberYellow font-bold mb-1">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i> Peran AI dalam Proyek Ini:
+                    </div>
+                    <p id="modal-ai-role" class="text-slate-300 leading-relaxed">
+                        Explanation of how AI helped accelerate this specific project.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="p-4 border-t border-darkBorder bg-darkBg/60 flex items-center justify-end gap-3">
+                <button id="modal-close-action" class="px-5 py-2 rounded-xl bg-darkCard border border-darkBorder hover:bg-darkCardHover text-slate-300 text-xs font-semibold transition-colors">
+                    Tutup
+                </button>
+            </div>
         </div>
-        <div class="skill">
-          <img
-            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
-          />
-          <h4>CSS3</h4>
-          <p>Flexbox & Grid</p>
-        </div>
-        <div class="skill">
-          <img
-            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
-          />
-          <h4>JavaScript</h4>
-          <p>DOM & Logic</p>
-        </div>
-        <div class="skill">
-          <img
-            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
-          />
-          <h4>Git</h4>
-          <p>Version Control</p>
-        </div>
-      </div>
-    </section>
+    </div>
 
-    <section id="projects">
-      <h3>Projects</h3>
-      <div class="projects">
-        <a
-          href="http://coffeeray.great-site.net/index.php"
-          target="_blank"
-          class="project"
-        >
-          <img
-            src="https://i.pinimg.com/736x/f5/4b/e5/f54be5264b91f70b001f51c9d469aeee.jpg"
-          />
-          <div>
-            <h4>Kasir Cafe</h4>
-            <p>Website Kasir Sederhana.</p>
-          </div>
-        </a>
-
-        <a
-          href="https://tixcyer.github.io/web-seleranusantara/"
-          target="_blank"
-          class="project"
-        >
-          <img
-            src="https://i.pinimg.com/736x/c1/f7/15/c1f715eb529db3a5e6c64fc43bfc0838.jpg"
-          />
-          <div>
-            <h4>Selera Nusantara</h4>
-            <p>Website Makanan Sederhana.</p>
-          </div>
-        </a>
-
-        <a
-          href="https://ray-web.infy.uk/ray.html"
-          target="_blank"
-          class="project"
-        >
-          <img
-            src="https://i.pinimg.com/1200x/0b/f5/83/0bf583f4fc208c073fd9ddae46086f94.jpg"
-          />
-          <div>
-            <h4>Cafe Shop</h4>
-            <p>Website company profesional.</p>
-          </div>
-        </a>
-      </div>
-    </section>
-
-    <section class="contact" id="contact">
-      <h3>Contact</h3>
-      <a href="mailto:masray1801@gmail.com">Email</a>
-    </section>
-
-    <footer>© 2026 Mas Ray</footer>
-
+    <!-- JAVASCRIPT LOGIC -->
     <script>
-      function toggleMenu() {
-        document.getElementById("nav").classList.toggle("active");
-      }
+        // PROJECT DATA (15 Projects Total: 5 UMKM, 5 E-Commerce, 5 Desktop)
+        const projectsData = [
+            // --- UMKM PROJECTS (5) ---
+            {
+                id: 'umkm-1',
+                category: 'umkm',
+                categoryName: 'Solusi UMKM',
+                title: 'Sistem Kasir & Inventaris Toko Kelontong',
+                shortDesc: 'Aplikasi kasir ringan berbasis web dengan fitur pencatatan stok real-time, cetak struk, dan laporan penjualan harian.',
+                fullDesc: 'Sistem Point-of-Sale (POS) terintegrasi yang dirancang khusus untuk pemilik toko kelontong atau minimarket UMKM. Solusi ini mempermudah pencatatan transaksi kasir serta mengontrol sisa stok secara otomatis tanpa membebani memori server.',
+                features: [
+                    'Pencatatan transaksi kasir cepat',
+                    'Manajemen stok otomatis berkurang',
+                    'Cetak struk belanja fisik/digital',
+                    'Laporan ringkasan omset harian'
+                ],
+                tags: ['HTML/CSS', 'JavaScript', 'PHP', 'MySQL', 'AI-Accelerated'],
+                aiRole: 'AI dimanfaatkan untuk membuat query database relasional yang optimal dan mempercepat penulisan logika kalkulasi harga transaksi.'
+            },
+            {
+                id: 'umkm-2',
+                category: 'umkm',
+                categoryName: 'Solusi UMKM',
+                title: 'Landing Page Katalog Digital Kuliner',
+                shortDesc: 'Website katalog interaktif untuk bisnis kuliner lokal dengan integrasi tombol pemesanan langsung ke WhatsApp.',
+                fullDesc: 'Platform landing page modern yang menampilkan daftar menu makanan dan minuman secara visual, lengkap dengan harga, kategori, dan tombol langsung terhubung ke admin WhatsApp dengan pesan pra-format.',
+                features: [
+                    'Tampilan menu interaktif & filter produk',
+                    'Direct-to-WhatsApp Checkout',
+                    'Desain responsif mobile-first',
+                    'Integasi peta lokasi lokasi usaha'
+                ],
+                tags: ['Tailwind CSS', 'JavaScript', 'WhatsApp API', 'AI-Design'],
+                aiRole: 'Menggunakan AI untuk mempercepat pembuatan tata letak Tailwind CSS yang responsif serta penataan struktur copy-writing penawaran.'
+            },
+            {
+                id: 'umkm-3',
+                category: 'umkm',
+                categoryName: 'Solusi UMKM',
+                title: 'Sistem Manajemen Pesanan Laundry',
+                shortDesc: 'Aplikasi lacak status pakaian (dicuci, disetrika, siap ambil) dengan kalkulator harga berat otomatis.',
+                fullDesc: 'Aplikasi manajemen operasional bisnis laundry kiloan maupun satuan. Dilengkapi fitur kalkulator berat otomatis, pemilihan wewangian, dan notifikasi status pengerjaan laundry.',
+                features: [
+                    'Tracking status laundry pelanggan',
+                    'Kalkulator harga otomatis per Kg/Satuan',
+                    'Sistem penomoran nota unik',
+                    'Pencatatan riwayat nota laundry'
+                ],
+                tags: ['PHP Native', 'Bootstrap', 'MySQL', 'AI-Prompted'],
+                aiRole: 'Mengarahkan AI untuk merancang algoritma penentuan estimasi waktu selesai berdasarkan total beban laundry yang masuk.'
+            },
+            {
+                id: 'umkm-4',
+                category: 'umkm',
+                categoryName: 'Solusi UMKM',
+                title: 'Aplikasi Rekap Keuangan UMKM',
+                shortDesc: 'Alat pembukuan sederhana untuk mencatat arus kas masuk/keluar harian dengan grafik ringkasan keuangan bulanan.',
+                fullDesc: 'Platform pembukuan keuangan digital sederhana bagi pelaku usaha mikro untuk menggantikan pencatatan buku fisik. Fitur mencakup input arus kas, pengelompokan pengeluaran, dan grafik visualisasi untung-rugi.',
+                features: [
+                    'Pencatatan Pemasukan & Pengeluaran',
+                    'Grafik visualisasi arus kas bulanan',
+                    'Export laporan keuangan ke PDF/Excel',
+                    'Kategori biaya yang dapat disesuaikan'
+                ],
+                tags: ['JavaScript', 'Chart.js', 'PHP', 'MySQL'],
+                aiRole: 'AI membantu dalam pengintegrasian pustaka Chart.js serta pembuatan rumus kalkulasi sisa kas secara presisi.'
+            },
+            {
+                id: 'umkm-5',
+                category: 'umkm',
+                categoryName: 'Solusi UMKM',
+                title: 'Sistem Reservasi Meja Warkop & Kafe',
+                shortDesc: 'Web pemesanan tempat dan pemesanan menu pra-pesan (pre-order) untuk meminimalkan antrean di lokasi.',
+                fullDesc: 'Sistem reservasi berbasis web untuk kedai kopi atau kafe lokal. Memungkinkan pelanggan memesan meja favorit dan memilih minuman dari rumah sebelum tiba di lokasi.',
+                features: [
+                    'Pilihan denah meja interaktif',
+                    'Sistem Pre-order menu bersamaan',
+                    'Pilihan jam kedatangan presisi',
+                    'Panel kontrol meja untuk barista'
+                ],
+                tags: ['HTML/CSS', 'JavaScript', 'Laravel', 'AI-Assisted'],
+                aiRole: 'Memanfaatkan AI untuk menyusun skema state manajemen pemesanan meja secara asynchronous tanpa bentrok jadwal.'
+            },
+
+            // --- E-COMMERCE PROJECTS (5) ---
+            {
+                id: 'ecom-1',
+                category: 'ecommerce',
+                categoryName: 'E-Commerce',
+                title: 'Platform E-Commerce Full-Stack',
+                shortDesc: 'Toko online lengkap dengan keranjang belanja, manajemen produk dinamis, dan simulasi checkout.',
+                fullDesc: 'Platform toko online modern serba ada yang mendukung pengelolaan produk oleh admin, filter kategori, keranjang belanja interaktif, hingga simulasi perhitungan ongkos kirim dan pembayaran.',
+                features: [
+                    'Manajemen Katalog & Kategori',
+                    'Keranjang Belanja Real-time (Session/Local)',
+                    'Sistem Checkout & Modal Pembayaran',
+                    'Panel Manajemen Pesanan Admin'
+                ],
+                tags: ['Laravel', 'Tailwind CSS', 'MySQL', 'AI-Accelerated'],
+                aiRole: 'Generasi struktur backend CRUD Laravel dan pembuatan relasi tabel antar User, Order, dan Product secara otomatis via AI.'
+            },
+            {
+                id: 'ecom-2',
+                category: 'ecommerce',
+                categoryName: 'E-Commerce',
+                title: 'E-Canteen / Pemesanan Kantin Digital Kampus',
+                shortDesc: 'Platform e-commerce khusus kantin kampus untuk memesan makanan dari berbagai tenant secara terpusat.',
+                fullDesc: 'Solusi e-commerce lokal di lingkungan akademik. Mahasiswa dapat memesan makanan dari beberapa tenant kantin sekaligus dalam satu transaksi untuk mengurangi antrean saat jam istirahat.',
+                features: [
+                    'Multi-tenant kantin dalam 1 platform',
+                    'Notifikasi pesanan siap ambil',
+                    'Sistem saldo/pembayaran digital kampus',
+                    'Laporan penjualan harian per tenant'
+                ],
+                tags: ['PHP', 'JavaScript', 'MySQL', 'Rapid-Prototyped'],
+                aiRole: 'AI membantu mendesain arsitektur database multi-tenant serta alur notifikasi pesanan real-time.'
+            },
+            {
+                id: 'ecom-3',
+                category: 'ecommerce',
+                categoryName: 'E-Commerce',
+                title: 'Fashion Store Online & Catalog Dynamic',
+                shortDesc: 'Website e-commerce pakaian dengan fitur filter varian warna/ukuran dan galeri foto interaktif.',
+                fullDesc: 'Toko online berfokus pada produk fashion dengan antarmuka elegan. Dilengkapi dengan penanganan varian produk kompleks seperti warna, ukuran stok, serta zoom galeri foto.',
+                features: [
+                    'Filter produk multi-kriteria',
+                    'Pemilihan Varian (Size & Color)',
+                    'Galeri foto interaktif dengan lightbox',
+                    'Fitur Wishlist / Simpan Favorit'
+                ],
+                tags: ['HTML/CSS', 'JavaScript', 'Bootstrap', 'AI-UI/UX'],
+                aiRole: 'Menggunakan AI untuk mempercepat pembuatan komponen UI interaktif serta penataan CSS kustom yang tajam.'
+            },
+            {
+                id: 'ecom-4',
+                category: 'ecommerce',
+                categoryName: 'E-Commerce',
+                title: 'Marketplace Jasa & Layanan Akademik',
+                shortDesc: 'Platform e-commerce berbasis jasa untuk memesan layanan penerjemah, desain, dan konsultasi.',
+                fullDesc: 'Platform transaksional layanan jasa non-fisik. Klien dapat memilih paket jasa, mengunggah berkas kebutuhan, serta memantau progres pengerjaan oleh penyedia jasa.',
+                features: [
+                    'Pilihan paket harga layanan (Basic/Pro)',
+                    'Sistem Upload Berkas Kebutuhan',
+                    'Tracking Progress Pengerjaan Jasa',
+                    'Sistem Rating & Ulasan Klien'
+                ],
+                tags: ['Laravel', 'JavaScript', 'MySQL', 'AI-CodeReview'],
+                aiRole: 'AI digunakan untuk melakukan peninjauan keamanan file upload serta membuat fungsi validasi ekstensi dokumen.'
+            },
+            {
+                id: 'ecom-5',
+                category: 'ecommerce',
+                categoryName: 'E-Commerce',
+                title: 'E-Commerce Admin & Analytics Dashboard',
+                shortDesc: 'Panel kontrol back-end untuk mengelola katalog, memantau riwayat transaksi, dan analisis statistik.',
+                fullDesc: 'Dashboard khusus administrator e-commerce dengan statistik penjualan interaktif, manajemen stok kritis, dan grafik pendapatan harian/bulanan.',
+                features: [
+                    'Ringkasan Metrik (Total Revenue, Orders)',
+                    'Tabel Manajemen Stok & Produk Terlaris',
+                    'Grafik Tren Penjualan dengan Chart.js',
+                    'Sistem Akses Role Admin / Staf'
+                ],
+                tags: ['Tailwind CSS', 'JavaScript', 'Chart.js', 'PHP'],
+                aiRole: 'AI mempercepat penulisan sintaks agregasi data SQL untuk laporan statistik keuangan.'
+            },
+
+            // --- DESKTOP PROJECTS (5) ---
+            {
+                id: 'desk-1',
+                category: 'desktop',
+                categoryName: 'Aplikasi Desktop',
+                title: 'Application POS (Point of Sale) Standalone',
+                shortDesc: 'Software kasir desktop untuk operasional cepat offline terhubung dengan scanner barcode.',
+                fullDesc: 'Aplikasi desktop Windows standalone yang dirancang untuk performa tinggi tanpa ketergantungan koneksi internet. Sangat cocok untuk toko ritel dengan frekuensi transaksi tinggi.',
+                features: [
+                    'Dukungan Barcode Scanner via USB',
+                    'Pencetakan Nota Kasir Thermal (POS)',
+                    'Penyimpanan lokal SQLite ultracepat',
+                    'Shortcuts keyboard untuk kasir'
+                ],
+                tags: ['VB.NET', 'Windows Forms', 'SQLite', 'AI-Logic'],
+                aiRole: 'AI membantu dalam penulisan event handling keyboard shortcut serta integrasi library pencetakan struk kasir.'
+            },
+            {
+                id: 'desk-2',
+                category: 'desktop',
+                categoryName: 'Aplikasi Desktop',
+                title: 'Sistem Informasi Klinik & Rekam Medis',
+                shortDesc: 'Software desktop untuk mencatat data pasien, rekam medis sederhana, dan jadwal dokter.',
+                fullDesc: 'Aplikasi pengelolaan operasional klinik kesehatan. Membantu petugas administrasi dan dokter dalam mengelola data riwayat penyakit pasien, resep obat, dan antrean konsul.',
+                features: [
+                    'Manajemen Database Pasien & Rekam Medis',
+                    'Modul Penulisan Resep Dokter',
+                    'Sistem Antrean Pendaftaran Klinik',
+                    'Cetak Kartu Berobat Pasien'
+                ],
+                tags: ['VB.NET', 'C#', 'SQL Server', 'AI-SystemDesign'],
+                aiRole: 'Memanfaatkan AI untuk merancang diagram alir sistem dan memastikan kerahasiaan & validasi struktur data rekam medis.'
+            },
+            {
+                id: 'desk-3',
+                category: 'desktop',
+                categoryName: 'Aplikasi Desktop',
+                title: 'Sistem Manajemen Sekolah & Penjadwalan',
+                shortDesc: 'Aplikasi desktop untuk mengelola data siswa, nilai akademik, serta penyusunan jadwal otomatis.',
+                fullDesc: 'Aplikasi tata usaha sekolah untuk mencatat identitas siswa, nilai semester, serta fitur pembantu penyusunan jadwal pelajaran agar tidak terjadi bentrok jam mengajar guru.',
+                features: [
+                    'Pengelolaan Data Siswa & Guru',
+                    'Input Nilai & Transkrip Akademik',
+                    'Pencegah Bentrok Jadwal Mengajar',
+                    'Cetak Laporan Rapor Siswa'
+                ],
+                tags: ['C#', 'Windows Forms', 'MySQL', 'AI-Algorithm'],
+                aiRole: 'Menggunakan AI dalam memformulasi algoritma pengecekan jadwal bentrok antar ruang kelas dan jadwal guru.'
+            },
+            {
+                id: 'desk-4',
+                category: 'desktop',
+                categoryName: 'Aplikasi Desktop',
+                title: 'Inventaris Gudang & Monitoring Stok',
+                shortDesc: 'Alat pemantau stok barang masuk/keluar gudang berbasis desktop dengan fitur alert stok minimum.',
+                fullDesc: 'Software manajemen pergudangan (Warehouse) untuk mencatat pergerakan barang. Dilengkapi notifikasi peringatan jika stok barang tertentu sudah di bawah batas minimum.',
+                features: [
+                    'Pencatatan Barang Masuk & Keluar',
+                    'Alert / Notifikasi Stok Kritis',
+                    'Pencatatan Supplier & Lokasi Rak',
+                    'Export Laporan Inventaris ke Excel'
+                ],
+                tags: ['VB.NET', 'MySQL', 'Crystal Reports', 'AI-Accelerated'],
+                aiRole: 'AI mempercepat proses debugging koneksi database lokal dan modul otentikasi login pengguna.'
+            },
+            {
+                id: 'desk-5',
+                category: 'desktop',
+                categoryName: 'Aplikasi Desktop',
+                title: 'Desktop Task & Project Manager',
+                shortDesc: 'Software produktivitas desktop untuk mencatat daftar tugas, deadline, dan status tim.',
+                fullDesc: 'Aplikasi manajemen tugas produktivitas personal maupun tim internal. Memiliki antarmuka papan Kanban sederhana untuk memindahkan status tugas dari To-Do hingga Selesai.',
+                features: [
+                    'Tampilan Papan Kanban (To-Do, In-Progress, Done)',
+                    'Pengingat Deadline Tugas (Reminders)',
+                    'Pencatatan Prioritas & Label Warna',
+                    'Penyimpanan database terenkripsi lokal'
+                ],
+                tags: ['C#', 'WPF / WinForms', 'SQLite', 'AI-Assisted'],
+                aiRole: 'AI membantu dalam mendesain logika drag-and-drop kartu tugas serta pengelolaan database SQLite.'
+            }
+        ];
+
+        // RENDER PROJECTS FUNCTION
+        let currentCategory = 'umkm';
+        let searchQuery = '';
+
+        function renderProjects() {
+            const grid = document.getElementById('projects-grid');
+            const noProjectsAlert = document.getElementById('no-projects');
+            grid.innerHTML = '';
+
+            // Filter Projects
+            const filtered = projectsData.filter(proj => {
+                const matchesCategory = proj.category === currentCategory;
+                const matchesSearch = proj.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                                      proj.tags.some(t => t.toLowerCase().includes(searchQuery.toLowerCase())) ||
+                                      proj.shortDesc.toLowerCase().includes(searchQuery.toLowerCase());
+                return matchesCategory && matchesSearch;
+            });
+
+            if (filtered.length === 0) {
+                noProjectsAlert.classList.remove('hidden');
+            } else {
+                noProjectsAlert.classList.add('hidden');
+
+                filtered.forEach(proj => {
+                    const card = document.createElement('div');
+                    card.className = 'glass-panel p-6 rounded-2xl border border-darkBorder hover:border-neonRed/50 transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1';
+                    
+                    // Category icon logic
+                    let catIcon = 'fa-store';
+                    if(proj.category === 'ecommerce') catIcon = 'fa-cart-shopping';
+                    if(proj.category === 'desktop') catIcon = 'fa-display';
+
+                    card.innerHTML = `
+                        <div>
+                            <!-- Header / Badge -->
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="px-2.5 py-1 rounded bg-darkBg border border-darkBorder text-cyberYellow text-[10px] font-mono font-semibold flex items-center gap-1.5">
+                                    <i class="fa-solid ${catIcon}"></i> ${proj.categoryName}
+                                </span>
+                                <span class="text-[10px] text-slate-500 font-mono"><i class="fa-solid fa-bolt text-cyberYellow mr-1"></i>AI-Built</span>
+                            </div>
+
+                            <!-- Title -->
+                            <h3 class="text-lg font-bold text-white group-hover:text-neonRed transition-colors mb-2">${proj.title}</h3>
+
+                            <!-- Short Description -->
+                            <p class="text-xs text-slate-400 leading-relaxed mb-6">${proj.shortDesc}</p>
+                        </div>
+
+                        <div>
+                            <!-- Tags -->
+                            <div class="flex flex-wrap gap-1.5 mb-6">
+                                ${proj.tags.map(t => `<span class="px-2 py-0.5 bg-darkBg/80 border border-darkBorder/80 text-slate-300 text-[10px] rounded font-mono">${t}</span>`).join('')}
+                            </div>
+
+                            <!-- Action Button -->
+                            <button onclick="openProjectModal('${proj.id}')" class="w-full py-2.5 rounded-xl bg-darkCard border border-darkBorder hover:bg-neonRed hover:text-white hover:border-neonRed text-slate-300 text-xs font-semibold transition-all duration-200 flex items-center justify-center gap-2">
+                                <span>Lihat Detail Proyek</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                            </button>
+                        </div>
+                    `;
+                    grid.appendChild(card);
+                });
+            }
+        }
+
+        // TAB SWITCHING LOGIC
+        document.querySelectorAll('.project-tab').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                document.querySelectorAll('.project-tab').forEach(b => {
+                    b.classList.remove('bg-neonRed', 'text-white', 'shadow-md');
+                    b.classList.add('text-slate-400');
+                });
+
+                btn.classList.add('bg-neonRed', 'text-white', 'shadow-md');
+                btn.classList.remove('text-slate-400');
+
+                currentCategory = btn.getAttribute('data-category');
+                renderProjects();
+            });
+        });
+
+        // SEARCH INPUT LOGIC
+        document.getElementById('project-search').addEventListener('input', (e) => {
+            searchQuery = e.target.value;
+            renderProjects();
+        });
+
+        // MODAL LOGIC
+        function openProjectModal(id) {
+            const proj = projectsData.find(p => p.id === id);
+            if (!proj) return;
+
+            document.getElementById('modal-category').innerText = proj.categoryName;
+            document.getElementById('modal-title').innerText = proj.title;
+            document.getElementById('modal-description').innerText = proj.fullDesc;
+            document.getElementById('modal-ai-role').innerText = proj.aiRole;
+
+            // Render Features
+            const featuresList = document.getElementById('modal-features');
+            featuresList.innerHTML = proj.features.map(f => `
+                <li class="flex items-center gap-2 text-xs">
+                    <i class="fa-solid fa-check text-emerald-400"></i> ${f}
+                </li>
+            `).join('');
+
+            // Render Tags
+            const tagsBox = document.getElementById('modal-tags');
+            tagsBox.innerHTML = proj.tags.map(t => `
+                <span class="px-2.5 py-1 bg-darkBg border border-darkBorder text-slate-300 text-xs rounded-lg font-mono">${t}</span>
+            `).join('');
+
+            const modal = document.getElementById('project-modal');
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('project-modal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        document.getElementById('close-modal-btn').addEventListener('click', closeModal);
+        document.getElementById('modal-close-action').addEventListener('click', closeModal);
+        document.getElementById('project-modal').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('project-modal')) closeModal();
+        });
+
+        // MOBILE MENU TOGGLE
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // CONTACT FORM INTERACTION
+        document.getElementById('contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Terima kasih! Pesan Anda telah terkirim. Ray akan segera menghubungi Anda kembali.');
+            e.target.reset();
+        });
+
+        // INITIAL RENDER
+        window.addEventListener('DOMContentLoaded', () => {
+            renderProjects();
+        });
     </script>
-  </body>
+</body>
 </html>
-
-
